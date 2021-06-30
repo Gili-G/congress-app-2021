@@ -1,0 +1,5 @@
+/SyncServer/.gradle/
+/SyncServer/.idea/
+/SyncServer/gradlew.bat
+/SyncServer/gradlew
+/SyncServer/build
