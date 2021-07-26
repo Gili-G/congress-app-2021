@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>gun106.jpg</filename>
+	<path>C:\Users\gmg51\gun-detection\images\gun106.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>259</width>
+		<height>194</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gun</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>21</ymin>
+			<xmax>259</xmax>
+			<ymax>187</ymax>
+		</bndbox>
+	</object>
+</annotation>
