@@ -9,8 +9,6 @@ from utils import visualization_utils as vis_util
 
 import cv2
 
-print("Hello world!!!")
-
 cap = cv2.VideoCapture(0)
 
 # What model to download.
@@ -42,6 +40,8 @@ def load_image_into_numpy_array(image):
     return np.array(image.getdata()).reshape(
         (im_height, im_width, 3)).astype(np.uint8)
 
+print("beginValues")
+
 with detection_graph.as_default():
     with tf.compat.v1.Session(graph=detection_graph) as sess:
         while True:
@@ -71,8 +71,7 @@ with detection_graph.as_default():
                 use_normalized_coordinates=True,
                 line_thickness=8)
 
-            print(np.max(np.squeeze(scores)), file=sys.stderr)
-            tf.get_logger().log(100, "We have a log!")
+            print(np.max(np.squeeze(scores)))
 
             cv2.imshow('object detection', cv2.resize(image_np, (800, 600)))
             if cv2.waitKey(25) & 0xFF == ord('q'):
