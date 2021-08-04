@@ -1,3 +1,5 @@
+import sys
+
 import tensorflow as tf
 import numpy as np
 import os
@@ -6,6 +8,8 @@ from utils import label_map_util
 from utils import visualization_utils as vis_util
 
 import cv2
+
+print("Hello world!!!")
 
 cap = cv2.VideoCapture(0)
 
@@ -66,6 +70,9 @@ with detection_graph.as_default():
                 category_index,
                 use_normalized_coordinates=True,
                 line_thickness=8)
+
+            print(np.max(np.squeeze(scores)), file=sys.stderr)
+            tf.get_logger().log(100, "We have a log!")
 
             cv2.imshow('object detection', cv2.resize(image_np, (800, 600)))
             if cv2.waitKey(25) & 0xFF == ord('q'):
