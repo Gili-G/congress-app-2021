@@ -1,4 +1,5 @@
 import sys
+import time
 
 import tensorflow as tf
 import numpy as np
@@ -71,7 +72,12 @@ with detection_graph.as_default():
                 use_normalized_coordinates=True,
                 line_thickness=8)
 
-            print(np.max(np.squeeze(scores)), file=sys.stderr)
+            time.sleep(0.1)
+            maxScore = np.max(np.squeeze(scores))
+            print("OUTVAL" + str(maxScore))
+            # print(maxScore, file=sys.stderr)
+            # tf.print(maxScore)
+            sys.stdout.flush()
 
             cv2.imshow('object detection', cv2.resize(image_np, (800, 600)))
             if cv2.waitKey(25) & 0xFF == ord('q'):

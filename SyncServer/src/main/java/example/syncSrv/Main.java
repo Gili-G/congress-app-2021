@@ -15,29 +15,35 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     Bucket bucket = StorageClient.getInstance().bucket();
     public static void main(String[] args) throws IOException, InterruptedException {
+        System.out.println("Initing GCloud stuff");
         Init();
+//        //todo figure out
+//        Thread printingHook = new Thread(() -> p.destroy());
+//        Runtime.getRuntime().addShutdownHook(printingHook);
 
+        System.out.println("Starting process");
         List<String> listArgs = new ArrayList<>();
         listArgs.add("python");
-        listArgs.add("detection_small.py");
+        listArgs.add("./detection_small.py");
+        //listArgs.add("C:\\Users\\ADMIN\\IdeaProjects\\congress-app-2021\\pyprocessing-small\\object_detection\\print_test.py");
         Process p = new ProcessBuilder()
                 .directory(new File("./pyprocessing-small/object_detection/"))
                 .command(listArgs)
-                .inheritIO()
+                //.inheritIO()
                 .redirectErrorStream(true)
                 .start();
 
-        Thread printingHook = new Thread(() -> p.destroy());
-        Runtime.getRuntime().addShutdownHook(printingHook);
-
-        BufferedReader pyResults = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-        while(true) {
-            System.out.println(pyResults.readLine());
+        System.out.println("Begin reading!");
+        BufferedReader pyResults = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        while(!pyResults.readLine().contains("OUTVAL")) {
+//            String s = pyResults.readLine();
+//            if(s != null) System.out.println("Reader:" + s);
             Thread.sleep(100);
         }
 //        for (String s = pyResults.readLine(); !(s != null && s.equals("beginValues")); s = pyResults.readLine()) {
@@ -45,15 +51,30 @@ public class Main {
 //            Thread.sleep(100);
 //        }
 //
-//        List<Float> rollingAvg = new ArrayList<>(5);
-//        while(true) {
-//            float num = Float.parseFloat(pyResults.readLine());
-//            rollingAvg.add(0, num);
-//            rollingAvg.remove(rollingAvg.size() - 1);
-//            System.out.println(rollingAvg);
-//            Thread.sleep(100);
-//        }
+        List<Double> rollingAvg = new ArrayList<>(Arrays.asList(0.0, 0.0, 0.0, 0.0, 0.0));
+        String lin;
+        while((lin = pyResults.readLine()) != null) {
+            Double num = Double.parseDouble(lin.substring(6));
+            rollingAvg.add(0, num);
+            rollingAvg.remove(rollingAvg.size() - 1);
+            float total = 0;
+            for(Double d: rollingAvg) {
+                total += d;
+            }
+            System.out.println(total / 5);
+            System.out.println(rollingAvg);
+            Thread.sleep(100);
+        }
     }
+
+//    public static String getNext(BufferedReader r) throws IOException {
+//        String returnable = r.readLine();
+//        String change;
+//        while((change = r.readLine()) != null) {
+//            returnable = change;
+//        }
+//        return returnable;
+//    }
 
     //turns a dir path to a byte array. Must be a jpg
     public static byte[] pathToByeArr(String path) throws IOException {
