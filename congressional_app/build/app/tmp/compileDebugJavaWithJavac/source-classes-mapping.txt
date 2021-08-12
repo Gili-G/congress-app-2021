@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/vigilant/congressional_app/BuildConfig.java
+ com.vigilant.congressional_app.BuildConfig
