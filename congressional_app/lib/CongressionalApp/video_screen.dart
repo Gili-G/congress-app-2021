@@ -52,7 +52,7 @@ class _ImagePageState extends State<ImagePage> {
           if(snapshot.connectionState ==  ConnectionState.done){
             return Scaffold(
               appBar: AppBar(
-                title: Text(value),
+                title: Text("Gun Snapshot: "),
                 backgroundColor: Colors.indigo[500],
               ),
               body: Container(
