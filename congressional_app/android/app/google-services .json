@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1027559150435",
+    "project_id": "congress-app-c6d54",
+    "storage_bucket": "congress-app-c6d54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027559150435:android:272793f0f592ba7ba9b956",
+        "android_client_info": {
+          "package_name": "com.vigilant.congressional_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027559150435-5p5ukcouncvjhgk0fg1ur37vhjj4prei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vigilant.congressional_app",
+            "certificate_hash": "2951fd73059713e401e475e33b2d5cb8e77ede09"
+          }
+        },
+        {
+          "client_id": "1027559150435-r6uaj28ks19fpo8ng7h7n2gvm3680i0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6YgoOHtTr8mVLFJjKMOHNqIk4f2Y7E-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027559150435-r6uaj28ks19fpo8ng7h7n2gvm3680i0i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
