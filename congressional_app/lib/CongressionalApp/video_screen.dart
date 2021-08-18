@@ -11,33 +11,11 @@ class VideoScreen extends StatefulWidget {
 
 class _VideoScreenState extends State<VideoScreen> {
 
-  List images = [
-      "gunDestination.jpg",
-      "asmile.jpeg",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          child: ListView.builder(
-              itemCount: images.length,
-              itemBuilder: (context, index){
-                return Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Card(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>  ImagePage(value: images[index]),
-                        ));
-                      },
-                      title: Text(images[index]),
-                    ),
-                  ),
-                );
-              }
-          ),
+            child: ImagePage(value: "gunDestination.jpg"),
        ),
     );
   }
@@ -78,8 +56,8 @@ class _ImagePageState extends State<ImagePage> {
                 backgroundColor: Colors.indigo[500],
               ),
               body: Container(
-                width: MediaQuery.of(context).size.width / 1.2,
-                height: MediaQuery.of(context).size.width / 1.2,
+                width: MediaQuery.of(context).size.width ,
+                height: MediaQuery.of(context).size.height,
                 child: Center(child: snapshot.data),
               ),
             );
@@ -98,9 +76,7 @@ class _ImagePageState extends State<ImagePage> {
             );
           }
 
-          return Container(
-            child: Text("You screwed up"),
-          );
+          return Container();
         }
     );
   }
