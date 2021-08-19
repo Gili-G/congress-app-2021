@@ -56,7 +56,7 @@ class _ImagePageState extends State<ImagePage> {
                 backgroundColor: Colors.indigo[500],
               ),
               body: Container(
-                width: MediaQuery.of(context).size.width ,
+                width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: Center(child: snapshot.data),
               ),
@@ -64,8 +64,8 @@ class _ImagePageState extends State<ImagePage> {
           }
           if(snapshot.connectionState == ConnectionState.waiting){
             return Container(
-              width: MediaQuery.of(context).size.width / 1.2,
-              height: MediaQuery.of(context).size.width / 1.2,
+              width: MediaQuery.of(context).size.width/1.2,
+              height: MediaQuery.of(context).size.width/1.2,
               child: Center(
                 child: SizedBox(
                   child: CircularProgressIndicator(),
