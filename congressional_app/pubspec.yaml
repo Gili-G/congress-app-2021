@@ -40,6 +40,9 @@ dependencies:
   provider: ^5.0.0
   firebase_auth: ^3.0.1
   flutter_signin_button: ^2.0.0
+  firebase_messaging: ^10.0.5
+  cloud_firestore: ^2.5.0
+  flutter_local_notifications: ^5.0.0+4
 
 
 dev_dependencies:
